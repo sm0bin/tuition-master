@@ -13,7 +13,7 @@
   },
   {
     "_id": 2,
-    "serviceImage": "jpg",
+    "serviceImage": "https://source.unsplash.com/rReG42Hkqo4",
     "serviceName": "Science Tutoring",
     "serviceDescription": "Excel in science with one-on-one tutoring. Hands-on experiments and in-depth understanding.",
     "serviceProvider": {
@@ -25,7 +25,7 @@
   },
   {
     "_id": 3,
-    "serviceImage": "jpg",
+    "serviceImage": "https://source.unsplash.com/cZISY8ai2iA",
     "serviceName": "Language Arts Tutoring",
     "serviceDescription": "Improve your language skills through interactive lessons and creative writing exercises.",
     "serviceProvider": {
@@ -37,7 +37,7 @@
   },
   {
     "_id": 4,
-    "serviceImage": "jpg",
+    "serviceImage": "https://source.unsplash.com/8bP7zfHZwQo",
     "serviceName": "History Tutoring",
     "serviceDescription": "Discover the past with engaging history lessons and expert guidance.",
     "serviceProvider": {
@@ -61,15 +61,15 @@
   },
   {
     "_id": 6,
-    "serviceImage": "jpg",
-    "serviceName": "Online Tutoring",
+    "serviceImage": "https://source.unsplash.com/b9-odQi5oDo",
+    "serviceName": "Programming Mentoring",
     "serviceDescription": "Access quality tutoring from the comfort of your home. Flexible scheduling.",
     "serviceProvider": {
       "image": "https://source.unsplash.com/_H6wpor9mjs",
       "name": "Emily Davis"
     },
     "servicePrice": 30,
-    "serviceArea": "Online Worldwide"
+    "serviceArea": "San Francisco, CA"
   },
   {
     "_id": 7,
@@ -97,7 +97,7 @@
   },
   {
     "_id": 9,
-    "serviceImage": "jpg",
+    "serviceImage": "https://source.unsplash.com/ucUB9wxkPgY",
     "serviceName": "SAT/ACT Prep",
     "serviceDescription": "Score high on standardized tests. Customized strategies and practice exams.",
     "serviceProvider": {
@@ -109,7 +109,7 @@
   },
   {
     "_id": 10,
-    "serviceImage": "jpg",
+    "serviceImage": "https://source.unsplash.com/--kQ4tBklJI",
     "serviceName": "Foreign Language Tutoring",
     "serviceDescription": "Learn a new language with native-speaking tutors. Interactive lessons for fluency.",
     "serviceProvider": {
