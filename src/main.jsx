@@ -8,6 +8,8 @@ import "./index.css";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./layouts/Root";
 import Login from "./auth/Login";
+import AuthProvider from "./providers/AuthProvider";
+import SignUp from "./auth/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -18,13 +20,19 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>
-      }
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp></SignUp>
+      },
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
