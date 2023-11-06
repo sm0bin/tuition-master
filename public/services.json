@@ -1,0 +1,146 @@
+[
+  {
+    "_id": 1,
+    "serviceImage": "https://source.unsplash.com/f1YfrZ1o2r8",
+    "serviceName": "Mathematics Tutoring",
+    "serviceDescription": "Master math with our expert tutors. Personalized lessons to boost your math skills.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/MTZTGvDsHFY",
+      "name": "John Doe"
+    },
+    "servicePrice": 30,
+    "serviceArea": "New York, NY"
+  },
+  {
+    "_id": 2,
+    "serviceImage": "jpg",
+    "serviceName": "Science Tutoring",
+    "serviceDescription": "Excel in science with one-on-one tutoring. Hands-on experiments and in-depth understanding.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/IF9TK5Uy-KI",
+      "name": "Jane Smith"
+    },
+    "servicePrice": 35,
+    "serviceArea": "Los Angeles, CA"
+  },
+  {
+    "_id": 3,
+    "serviceImage": "jpg",
+    "serviceName": "Language Arts Tutoring",
+    "serviceDescription": "Improve your language skills through interactive lessons and creative writing exercises.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/iEEBWgY_6lA",
+      "name": "Michael Brown"
+    },
+    "servicePrice": 25,
+    "serviceArea": "Chicago, IL"
+  },
+  {
+    "_id": 4,
+    "serviceImage": "jpg",
+    "serviceName": "History Tutoring",
+    "serviceDescription": "Discover the past with engaging history lessons and expert guidance.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/jzz_3jWMzHA",
+      "name": "Sarah Johnson"
+    },
+    "servicePrice": 30,
+    "serviceArea": "Houston, TX"
+  },
+  {
+    "_id": 5,
+    "serviceImage": "https://source.unsplash.com/QJDzYT_K8Xg",
+    "serviceName": "Test Preparation",
+    "serviceDescription": "Get ready for exams with comprehensive test prep courses and practice tests.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/6anudmpILw4",
+      "name": "Robert Wilson"
+    },
+    "servicePrice": 40,
+    "serviceArea": "Miami, FL"
+  },
+  {
+    "_id": 6,
+    "serviceImage": "jpg",
+    "serviceName": "Online Tutoring",
+    "serviceDescription": "Access quality tutoring from the comfort of your home. Flexible scheduling.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/_H6wpor9mjs",
+      "name": "Emily Davis"
+    },
+    "servicePrice": 30,
+    "serviceArea": "Online Worldwide"
+  },
+  {
+    "_id": 7,
+    "serviceImage": "https://source.unsplash.com/k2Kcwkandwg",
+    "serviceName": "Specialized Subjects",
+    "serviceDescription": "Expertise in niche subjects. Advanced tutoring for specialized knowledge.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/kVg2DQTAK7c",
+      "name": "Daniel Lee"
+    },
+    "servicePrice": 35,
+    "serviceArea": "San Francisco, CA"
+  },
+  {
+    "_id": 8,
+    "serviceImage": "https://source.unsplash.com/IHHBbTY8NBs",
+    "serviceName": "Homework Help",
+    "serviceDescription": "Get assistance with your daily homework assignments. On-demand support.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/3TLl_97HNJo",
+      "name": "Linda Wilson"
+    },
+    "servicePrice": 20,
+    "serviceArea": "Boston, MA"
+  },
+  {
+    "_id": 9,
+    "serviceImage": "jpg",
+    "serviceName": "SAT/ACT Prep",
+    "serviceDescription": "Score high on standardized tests. Customized strategies and practice exams.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/fHXpgMd_XhE",
+      "name": "William Miller"
+    },
+    "servicePrice": 40,
+    "serviceArea": "Seattle, WA"
+  },
+  {
+    "_id": 10,
+    "serviceImage": "jpg",
+    "serviceName": "Foreign Language Tutoring",
+    "serviceDescription": "Learn a new language with native-speaking tutors. Interactive lessons for fluency.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/JgXxNIHotZ8",
+      "name": "Olivia Parker"
+    },
+    "servicePrice": 30,
+    "serviceArea": "Dallas, TX"
+  },
+  {
+    "_id": 11,
+    "serviceImage": "https://source.unsplash.com/4r5Hogjbgkw",
+    "serviceName": "Essay Writing Help",
+    "serviceDescription": "Craft compelling essays with expert guidance. Improve your writing skills.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/9ZXpKFlQkjo",
+      "name": "Mark Adams"
+    },
+    "servicePrice": 25,
+    "serviceArea": "Philadelphia, PA"
+  },
+  {
+    "_id": 12,
+    "serviceImage": "https://source.unsplash.com/j0QQup2kwFs",
+    "serviceName": "STEM Subjects",
+    "serviceDescription": "Excel in science, technology, engineering, and mathematics. Advanced STEM tutoring.",
+    "serviceProvider": {
+      "image": "https://source.unsplash.com/jKuch64WZ_o",
+      "name": "Hannah White"
+    },
+    "servicePrice": 35,
+    "serviceArea": "Denver, CO"
+  }
+]

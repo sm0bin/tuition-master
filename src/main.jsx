@@ -10,6 +10,8 @@ import Root from "./layouts/Root";
 import Login from "./auth/Login";
 import AuthProvider from "./providers/AuthProvider";
 import SignUp from "./auth/SignUp";
+import Home from "./pages/Home";
+import AllServices from "./pages/AllServices";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +20,21 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "/",
+        element: <Home></Home>
+      },
+      {
         path: "/login",
         element: <Login></Login>
       },
       {
         path: "/sign-up",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/services",
+        element: <AllServices></AllServices>,
+        loader: () => fetch("services.json")
       },
     ]
   },
