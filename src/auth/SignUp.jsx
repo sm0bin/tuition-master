@@ -1,22 +1,54 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-    const { googleSignIn, loginUser } = useContext(AuthContext);
+    const { googleSignIn, signUpUser, updateUser } = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState("");
 
     const handleSubmit = e => {
         e.preventDefault();
+        setSignUpError("");
         const form = e.currentTarget;
+        const name = form.name.value;
+        const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
 
-        loginUser(email, password)
+        if (password.length < 6) {
+            setSignUpError('Password must be at least 6 characters long.');
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            setSignUpError('Password must contain at least one lowercase letter.');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setSignUpError('Password must contain at least one uppercase letter.');
+            return;
+        }
+        else if (!/[0-9]/.test(password)) {
+            setSignUpError('Password must contain at least one number.');
+            return;
+        }
+        else if (!/[!@#$%^&*()+=]/.test(password)) {
+            setSignUpError('Password must contain at least one special character.');
+            return;
+        }
+
+        signUpUser(email, password)
             .then(result => {
                 console.log(result.user);
-                toast.success('Login Successful.');
-                form.reset();
+                updateUser(name, photoUrl)
+                    .then(result => {
+                        console.log(result);
+                        toast.success('User created successfully.')
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        toast.error(error.message);
+                    })
             })
             .catch(error => {
                 console.error(error);
@@ -46,27 +78,27 @@ const SignUp = () => {
                     <h2 className="font-bold text-3xl mb-6">Sign Up Here</h2>
                     <div className="mb-6">
 
-                        <label htmlFor="email-address-icon" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <label htmlFor="name-icon" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4  text-gray-500 dark:text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="email" name="email" id="email-address-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" />
+                            <input type="text" name="name" id="name-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" />
                         </div>
 
                     </div>
                     <div className="mb-6">
 
-                        <label htmlFor="email-address-icon" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo URL</label>
+                        <label htmlFor="image-icon" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo URL</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4  text-gray-500 dark:text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="email" name="email" id="email-address-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Profile URL" />
+                            <input type="text" name="photoUrl" id="image-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Profile URL" />
                         </div>
 
                     </div>
