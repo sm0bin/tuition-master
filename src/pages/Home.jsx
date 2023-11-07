@@ -6,7 +6,7 @@ import Testimonials from "../shared/Testimonials";
 
 const Home = () => {
     return (
-        <div>
+        <div className="space-y-20 md:space-y-32">
             <HeroSlider></HeroSlider>
             <PopularServices></PopularServices>
             <CtaCard></CtaCard>

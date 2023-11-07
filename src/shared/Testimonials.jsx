@@ -1,7 +1,7 @@
 
 const Testimonials = () => {
     return (
-        <div className="my-32">
+        <div className="">
             <h2 className="font-bold text-center text-3xl mb-12">Discover What Others Have to Say</h2>
 
             <div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2">

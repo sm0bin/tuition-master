@@ -26,9 +26,11 @@ const AllServices = () => {
                 {
                     loadedServices?.map(service => (
 
-                        <div key={service._id} className="flex flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                            <img className="object-cover w-[512px] h-[320px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
-                            <div className="flex flex-col justify-between p-4 leading-normal space-y-3">
+                        <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                            <figure className=" w-1/2 h-[360px] overflow-hidden grow">
+                                <img className="object-cover w-[600px] h-[600px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
+                            </figure>
+                            <div className="flex flex-col w-1/2 justify-between p-4 leading-normal space-y-3">
                                 <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{service?.serviceName}</h5>
                                 <div className="flex items-center gap-3">
                                     <img className="w-12 h-12 rounded-full object-cover" src={service?.serviceProvider?.image} alt={`${service?.serviceProvider?.name} image`} />
