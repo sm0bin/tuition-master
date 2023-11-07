@@ -15,6 +15,7 @@ import AllServices from "./pages/AllServices";
 import ServiceDetails from "./pages/ServiceDetails";
 import PrivateRoute from "./routes/PrivateRoute";
 import AddService from "./pages/AddService";
+import MyServices from "./pages/MyServices";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
       {
         path: "/services/new",
         element: <PrivateRoute><AddService></AddService></PrivateRoute>,
+      },
+      {
+        path: "/your-services",
+        element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
+        loader: () => fetch(`services.json`)
+        // loader: () => fetch(`https://offline-service-server.vercel.app/services/`)
       },
     ]
   },

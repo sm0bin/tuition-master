@@ -53,7 +53,7 @@ const Header = () => {
                                 <div id="dropdownNavbar" className={`z-10 absolute ${isOpen ? '' : 'hidden'} font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}>
                                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                         <li>
-                                            <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Services</NavLink>
+                                            <NavLink to="/your-services" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Services</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to="/services/new" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Services</NavLink>

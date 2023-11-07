@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Label, Textarea, Toast } from 'flowbite-react';
+import { Button, Label } from 'flowbite-react';
 import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
 import axios from 'axios';
