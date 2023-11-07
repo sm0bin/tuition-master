@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const PopularServices = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5500/services")
+        axios.get("https://offline-service-server.vercel.app/services")
             .then(res => setServices(res.data));
     }, [])
     return (
@@ -14,11 +16,8 @@ const PopularServices = () => {
 
             <h2 className="font-bold text-center text-3xl mb-12">Popular Services</h2>
             <div className="max-w-7xl mx-4 md:mx-8 lg:mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                {
+                {services.length ?
                     services?.slice(0, 4).map(service => (
-
-
-
 
                         <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow  w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="object-cover w-full h-[400px] rounded-t-lg  md:rounded-none" src={service.serviceImage} alt={`${service?.serviceName} image`} />
@@ -46,7 +45,8 @@ const PopularServices = () => {
 
 
 
-                    ))
+                    )) :
+                    <Skeleton />
                 }
             </div>
             <Link to="/services">
