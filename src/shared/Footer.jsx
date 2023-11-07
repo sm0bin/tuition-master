@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
 
-        <footer className="bg-white dark:bg-gray-900">
+        <footer className="bg-white dark:bg-gray-900 mt-12 lg:mt-32">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -18,7 +18,7 @@ const Footer = () => {
                                     <a href="https://flowbite.com/" className="hover:underline">Tuition Master</a>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                                    <a href="https://tailwindcss.com/" className="hover:underline">Google Drive</a>
                                 </li>
                             </ul>
                         </div>
@@ -26,10 +26,10 @@ const Footer = () => {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Github</a>
+                                    <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Facebook</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Discord</a>
+                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">YouTube</a>
                                 </li>
                             </ul>
                         </div>

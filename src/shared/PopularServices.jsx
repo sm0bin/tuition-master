@@ -46,7 +46,7 @@ const PopularServices = () => {
 
 
                     )) :
-                    <Skeleton />
+                    <Skeleton count={4} />
                 }
             </div>
             <Link to="/services">

@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { googleSignIn, loginUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -17,6 +19,7 @@ const Login = () => {
                 console.log(result.user);
                 toast.success('Login Successful.');
                 form.reset();
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -29,6 +32,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Login Successful.');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);

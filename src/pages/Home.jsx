@@ -1,17 +1,17 @@
 import CtaCard from "../shared/CtaCard";
 import FeatureTabs from "../shared/FeatureTabs";
-import HeroSlider from "../shared/Hero";
+import Hero from "../shared/Hero";
 import PopularServices from "../shared/PopularServices";
 import Testimonials from "../shared/Testimonials";
 
 const Home = () => {
     return (
         <div className="space-y-20 md:space-y-32">
-            <HeroSlider></HeroSlider>
+            <Hero></Hero>
             <PopularServices></PopularServices>
-            <CtaCard></CtaCard>
             <FeatureTabs></FeatureTabs>
             <Testimonials></Testimonials>
+            <CtaCard></CtaCard>
         </div>
     );
 };

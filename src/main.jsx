@@ -13,6 +13,7 @@ import SignUp from "./auth/SignUp";
 import Home from "./pages/Home";
 import AllServices from "./pages/AllServices";
 import ServiceDetails from "./pages/ServiceDetails";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`https://offline-service-server.vercel.app/services/${params.id}`)
       },
     ]
