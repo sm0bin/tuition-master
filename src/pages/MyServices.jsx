@@ -74,7 +74,7 @@ const MyServices = () => {
     return (
         <div className=" mt-20">
 
-            <div className="flex items-start w-1/2">
+            <div className="flex items-start w-full lg:w-1/2">
                 <Player
                     className="w-36"
                     src="https://lottie.host/68ca66ea-281a-4b77-b791-83ed81bf5e9d/IGEOBENceT.json"
@@ -95,7 +95,7 @@ const MyServices = () => {
                             typeSpeed={100}
                             words={[
                                 "Manage Your Services with Ease",
-                                "Update, Delete, and Fine-Tune Your Offerings",
+                                "Fine-Tune Your Offerings",
                             ]}
                         />
                     </h2>
@@ -110,10 +110,8 @@ const MyServices = () => {
                     </div> :
                         myServices?.map(service => (
                             <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                <figure className=" w-1/2 h-[360px] overflow-hidden grow">
-                                    <img className="object-cover w-[600px] h-[600px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
-                                </figure>
-                                <div className="flex flex-col w-1/2 justify-between p-4 leading-normal space-y-3">
+                                <img className="md:w-1/2  object-cover w-[600px] h-[400px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
+                                <div className="flex flex-col md:w-1/2 justify-between p-4 leading-normal space-y-3">
                                     <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{service?.serviceName}</h5>
                                     <div className="flex items-center gap-3">
                                         <img className="w-12 h-12 rounded-full object-cover" src={service?.serviceProvider?.image} alt={`${service?.serviceProvider?.name} image`} />

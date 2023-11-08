@@ -1,11 +1,36 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { Player } from '@lottiefiles/react-lottie-player';
+import { useState } from "react";
+// import axios from "axios";
 
 const AllServices = () => {
     const loadedServices = useLoaderData();
+    const [displayServices, setDisplayServices] = useState(loadedServices.slice(0, 6));
+    const [showAll, setShowAll] = useState(false);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const searchText = e.target.search.value.toLowerCase();
+        const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
+        // axios.get(`http://localhost:5500/services`)
+        //     .then(res => {
+        //         console.log(res.data);
+        //         setDisplayServices(res.data.slice(0, 6));
+        //     })
+        setDisplayServices(filteredServices.slice(0, 6));
+        setShowAll(false);
+        e.target.reset();
+        console.log(searchText);
+    }
+
+    const handleShowAll = () => {
+        setShowAll(!showAll);
+        setDisplayServices(loadedServices);
+    }
+
     return (
-        <div className="max-w-7xl mx-4 md:mx-8 lg:mx-auto">
-            <div className="flex gap-10 mt-10 items-center">
+        <div className="">
+            <div className="md:flex gap-10 mt-10 items-center">
                 <Player
                     className="w-full max-w-3xl"
                     src="lottie.json"
@@ -17,7 +42,7 @@ const AllServices = () => {
                     <h4 className="font-bold text-xl mb-6 text-blue-600 mt-20 underline underline-offset-4">All Services</h4>
                     <h2 className="font-bold text-4xl mb-6 max-w-xl">Find the Perfect Tutor or Course for Your Needs</h2>
                     <p className="text-lg mb-4">Tailor your educational journey by finding the perfect match to achieve your academic goals. Start your search today and take a step closer to academic success.</p>
-                    <form className="mb-12">
+                    <form onSubmit={handleSearch} className="mb-12">
                         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -26,7 +51,7 @@ const AllServices = () => {
                                 </svg>
                             </div>
 
-                            <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Services..." required />
+                            <input type="search" name="search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Services..." required />
                             <button type="submit" className="absolute top-0 right-0 py-2.5 px-5 text-lg font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Search
                             </button>
@@ -37,13 +62,11 @@ const AllServices = () => {
 
             <div className=" grid grid-cols-1 gap-6">
                 {
-                    loadedServices?.map(service => (
+                    displayServices?.map(service => (
 
                         <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                            <figure className=" w-1/2 h-[360px] overflow-hidden grow">
-                                <img className="object-cover w-[600px] h-[600px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
-                            </figure>
-                            <div className="flex flex-col w-1/2 justify-between p-4 leading-normal space-y-3">
+                            <img className="md:w-1/2 object-cover w-[600px] h-[400px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
+                            <div className="flex flex-col md:w-1/2 justify-between p-4 leading-normal space-y-3">
                                 <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{service?.serviceName}</h5>
                                 <div className="flex items-center gap-3">
                                     <img className="w-12 h-12 rounded-full object-cover" src={service?.serviceProvider?.image} alt={`${service?.serviceProvider?.name} image`} />
@@ -67,7 +90,7 @@ const AllServices = () => {
                     ))
                 }
             </div>
-            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-20 mx-auto block dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Show all</button>
+            <button onClick={handleShowAll} type="button" className={`${showAll && "hidden"} text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-20 mx-auto block dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800`}>Show all</button>
         </div>
 
     )

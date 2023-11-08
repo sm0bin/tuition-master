@@ -15,7 +15,7 @@ const PopularServices = () => {
         <div>
 
             <h2 className="font-bold text-center text-3xl mb-12">Popular Services</h2>
-            <div className="max-w-7xl mx-4 md:mx-8 lg:mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {services.length ?
                     services?.slice(0, 4).map(service => (
 

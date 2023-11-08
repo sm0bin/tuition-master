@@ -7,7 +7,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-4 md:mx-8 lg:mx-auto flex flex-col-reverse lg:flex-row justify-between  my-12 lg:my-32  gap-8 lg:gap-32">
             <div className="lg:w-1/2">
                 {/* <h1 className="font-bold text-6xl mb-6 leading-tight">Unlock Your Academic Potential with <span className="text-blue-600">Tuition Master</span></h1> */}
-                <h1 className="font-bold text-5xl md:text-6xl mb-6 leading-tight h-[220px]">
+                <h1 className="font-bold text-5xl md:text-6xl mb-6 leading-tight h-56 md:h-44 ">
                     <Typewriter
                         cursor
                         cursorBlinking
@@ -18,7 +18,7 @@ const Hero = () => {
                         typeSpeed={75}
                         words={[
                             // `Unlock Your Academic Potential with ${<span className="text-blue-600">Tuition Master</span>}`
-                            'Find the Best Tutor at Your Doorstep',
+                            'Best Tutor at Your Doorstep with Tuition Master',
                             'Unlock Your Academic Potential with Tuition Master',
                         ]}
                     />
