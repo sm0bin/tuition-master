@@ -4,6 +4,7 @@ import { Label } from 'flowbite-react';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet";
 
 const UpdateService = ({ updateService, setOpenModal }) => {
     const {
@@ -58,6 +59,9 @@ const UpdateService = ({ updateService, setOpenModal }) => {
     return (
         // <div className='min-h-screen'>
         <form onSubmit={handleUpdateService} id='addServiceForm' className="flex max-w-xl flex-col gap-4">
+            <Helmet>
+                <title>Tuition Master | Update Service</title>
+            </Helmet>
             <Toaster />
             <div>
                 <div className="mb-2 block">

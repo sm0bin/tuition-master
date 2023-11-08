@@ -8,6 +8,7 @@ import { Modal } from 'flowbite-react';
 import UpdateService from "./UpdateService";
 import Lottie from "lottie-react";
 import gif from "../assets/sleeping-blue.json";
+import { Helmet } from "react-helmet";
 
 
 const MyServices = () => {
@@ -73,7 +74,9 @@ const MyServices = () => {
 
     return (
         <div className=" mt-20">
-
+            <Helmet>
+                <title>Tuition Master | My Services</title>
+            </Helmet>
             <div className="flex items-start w-full lg:w-1/2">
                 <Player
                     className="w-36"

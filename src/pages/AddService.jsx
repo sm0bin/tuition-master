@@ -5,6 +5,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const AddService = () => {
     const { user } = useContext(AuthContext);
@@ -45,6 +46,9 @@ const AddService = () => {
     }
     return (
         <div className='min-h-screen'>
+            <Helmet>
+                <title>Tuition Master | Add Service</title>
+            </Helmet>
             <Toaster />
             <form onSubmit={handleAddService} id='addServiceForm' className="flex max-w-xl flex-col gap-4 mx-auto mt-20 border shadow rounded-2xl p-12">
                 <h1 className='font-bold text-4xl text-center'> Add Your Service</h1>

@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { Player } from '@lottiefiles/react-lottie-player';
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 // import axios from "axios";
 
 const AllServices = () => {
@@ -30,6 +31,10 @@ const AllServices = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Tuition Master | All Services</title>
+            </Helmet>
+
             <div className="md:flex gap-10 mt-10 items-center">
                 <Player
                     className="w-full max-w-3xl"

@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from 'react-hot-toast';
+import { Helmet } from "react-helmet";
 
 const MySchedules = () => {
     const { user } = useContext(AuthContext);
@@ -40,6 +41,9 @@ const MySchedules = () => {
     return (
         <div>
             <Toaster />
+            <Helmet>
+                <title>Tuition Master | My Schedules</title>
+            </Helmet>
             <h2 className="font-bold text-3xl text-center mb-12 mt-20">My Booking</h2>
             <div className=" grid grid-cols-1 gap-6 mb-20">
                 {

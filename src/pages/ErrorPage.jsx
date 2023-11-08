@@ -1,5 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import img from "../assets/404-panda.svg"
+import { Helmet } from "react-helmet";
 
 export default function ErrorPage() {
     const error = useRouteError();
@@ -8,6 +9,9 @@ export default function ErrorPage() {
     return (
         <>
             <div id="error-page" className="flex flex-col items-center justify-center my-24 gap-3 space-y-4 w-11/12 mx-auto">
+                <Helmet>
+                    <title>Tuition Master | Error 404</title>
+                </Helmet>
                 <img className="lg:w-1/3 mx-auto" src={img} alt="" />
                 {/* <div>
                     <h2 className="font-semibold text-2xl text-center">Sorry, an unexpected error has occurred.</h2>

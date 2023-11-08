@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const ServiceDetails = () => {
@@ -63,7 +64,9 @@ const ServiceDetails = () => {
     return (
         <div>
             <Toaster />
-
+            <Helmet>
+                <title>Tuition Master | Service Details</title>
+            </Helmet>
             <div className="my-12 flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow  w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="object-cover w-full h-[560px] rounded-t-lg  md:rounded-none" src={serviceImage} alt={`${serviceName} image`} />
                 <div className="w-full flex flex-col  justify-between p-6 leading-normal space-y-3 grow">
