@@ -108,7 +108,7 @@ const ServiceDetails = () => {
                                     </div>
                                     <div className="max-w-md">
                                         <div className="mb-2 block">
-                                            <Label htmlFor="date" value="Service Date" />
+                                            <Label htmlFor="date" value="Start From" />
                                         </div>
                                         <Datepicker name="date" id="date" addon="Date" autoHide={false} required />
                                     </div>

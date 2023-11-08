@@ -1,13 +1,62 @@
-import { Link, useLoaderData } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import { Player } from '@lottiefiles/react-lottie-player';
+import { useContext, useState } from "react";
+import axios from "axios";
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
+
 
 const MyServices = () => {
-    const loadedServices = useLoaderData();
+    const { user } = useContext(AuthContext);
+    const [myServices, setMyServices] = useState([]);
+
+
+
+
+
+    axios.get(`https://offline-service-server.vercel.app/services?email=${user.email}`)
+        .then(res => setMyServices(res.data))
+        .catch(error => console.log(error));
+
+    const handleDelete = (id) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`https://offline-service-server.vercel.app/services/${id}`)
+                    .then(res => {
+                        console.log(res);
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong!",
+                        });
+                    })
+
+            }
+        });
+    }
+
+
     return (
         <div className=" mt-20">
 
-            <div className="flex justify-center items-start w-1/2 mx-auto">
+            <div className="flex items-start w-1/2">
                 <Player
                     className="w-36"
                     src="https://lottie.host/68ca66ea-281a-4b77-b791-83ed81bf5e9d/IGEOBENceT.json"
@@ -22,7 +71,7 @@ const MyServices = () => {
                             cursor
                             cursorBlinking
                             cursorColor="#6F9BF2"
-                            delaySpeed={1000}
+                            delaySpeed={100}
                             deleteSpeed={30}
                             loop={0}
                             typeSpeed={100}
@@ -37,7 +86,7 @@ const MyServices = () => {
 
             <div className=" grid grid-cols-1 gap-6">
                 {
-                    loadedServices?.map(service => (
+                    myServices?.map(service => (
 
                         <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <figure className=" w-1/2 h-[360px] overflow-hidden grow">
@@ -52,12 +101,24 @@ const MyServices = () => {
                                 <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Price: ${service?.servicePrice}</h5>
                                 <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Service Area: {service?.serviceArea}</h5>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{service?.serviceDescription}</p>
-                                <Link to={`/services/${service._id}`} className="w-max inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    View Details
-                                    <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </Link>
+
+
+                                <div className="flex">
+
+                                    <button type="button" className="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                            <path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" />
+                                        </svg>
+                                        Update
+                                    </button>
+                                    <button onClick={() => handleDelete(service?._id)} type="button" className="w-max text-white bg-rose-600 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                                        </svg>
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -67,7 +128,10 @@ const MyServices = () => {
                     ))
                 }
             </div>
-            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-20 mx-auto block dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Show all</button>
+
+
+
+
         </div>
 
     )

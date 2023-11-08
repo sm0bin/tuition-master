@@ -10,7 +10,7 @@ const PopularServices = () => {
     useEffect(() => {
         axios.get("https://offline-service-server.vercel.app/services")
             .then(res => setServices(res.data));
-    }, [])
+    }, [services])
     return (
         <div>
 

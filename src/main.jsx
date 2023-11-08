@@ -52,8 +52,6 @@ const router = createBrowserRouter([
       {
         path: "/your-services",
         element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
-        loader: () => fetch(`services.json`)
-        // loader: () => fetch(`https://offline-service-server.vercel.app/services/`)
       },
     ]
   },

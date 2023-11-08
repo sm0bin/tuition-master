@@ -18,7 +18,7 @@ const Hero = () => {
                         typeSpeed={75}
                         words={[
                             // `Unlock Your Academic Potential with ${<span className="text-blue-600">Tuition Master</span>}`
-                            'Best Tutor at Your Doorstep',
+                            'Find the Best Tutor at Your Doorstep',
                             'Unlock Your Academic Potential with Tuition Master',
                         ]}
                     />
