@@ -13,7 +13,7 @@ const AllServices = () => {
         e.preventDefault();
         const searchText = e.target.search.value.toLowerCase();
         const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
-        // axios.get(`http://localhost:5500/services`)
+        // axios.get(`https://offline-service-server.vercel.app/services`)
         //     .then(res => {
         //         console.log(res.data);
         //         setDisplayServices(res.data.slice(0, 6));

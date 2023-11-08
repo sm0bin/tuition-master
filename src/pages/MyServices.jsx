@@ -21,7 +21,7 @@ const MyServices = () => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5500/services?email=${user.email}`)
+        axios.get(`https://offline-service-server.vercel.app/services?email=${user.email}`)
             .then(res => setMyServices(res.data))
             .catch(error => console.log(error));
     }, [user?.email])
@@ -43,7 +43,7 @@ const MyServices = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5500/services/${id}`)
+                axios.delete(`https://offline-service-server.vercel.app/services/${id}`)
                     .then(res => {
                         console.log(res);
                         Swal.fire({

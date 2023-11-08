@@ -14,7 +14,7 @@ const MySchedules = () => {
     const handleStateChange = (e, id) => {
         const serviceState = e.target.value;
         console.log(serviceState);
-        axios.put(`http://localhost:5500/bookings/${id}`, { serviceState })
+        axios.put(`https://offline-service-server.vercel.app/bookings/${id}`, { serviceState })
             .then(res => {
                 if (res.data.modifiedCount) {
                     console.log(res.data);
@@ -29,7 +29,7 @@ const MySchedules = () => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5500/bookings?email=${user.email}`)
+        axios.get(`https://offline-service-server.vercel.app/bookings?email=${user.email}`)
             .then(res => {
                 setMyBookings(res.data.userBooking)
                 setMyPending(res.data.userPending)
