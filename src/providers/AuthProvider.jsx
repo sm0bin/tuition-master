@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from "../firebase/firebase.config";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+// import axios from 'axios';
 
 const googleProvider = new GoogleAuthProvider();
 export const AuthContext = createContext(null);
@@ -40,6 +41,9 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
+            // if (currentUser) {
+            //     axios.
+            // }
         });
         return () => unsubscribe();
     }, []);

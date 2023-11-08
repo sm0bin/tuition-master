@@ -16,6 +16,7 @@
     "flowbite": "^2.0.0",
     "flowbite-react": "^0.6.4",
     "framer-motion": "^10.16.4",
+    "jsonwebtoken": "^9.0.2",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.1",

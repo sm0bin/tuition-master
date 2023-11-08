@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { Player } from '@lottiefiles/react-lottie-player';
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-// import axios from "axios";
+import axios from "axios";
 
 const AllServices = () => {
     const loadedServices = useLoaderData();
@@ -12,13 +12,13 @@ const AllServices = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const searchText = e.target.search.value.toLowerCase();
-        const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
-        // axios.get(`https://offline-service-server.vercel.app/services`)
-        //     .then(res => {
-        //         console.log(res.data);
-        //         setDisplayServices(res.data.slice(0, 6));
-        //     })
-        setDisplayServices(filteredServices.slice(0, 6));
+        // const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
+        axios.get(`https://offline-service-server.vercel.app/services?search=${searchText}`)
+            .then(res => {
+                console.log(res.data);
+                setDisplayServices(res.data.slice(0, 6));
+            })
+        // setDisplayServices(filteredServices.slice(0, 6));
         setShowAll(false);
         e.target.reset();
         console.log(searchText);
