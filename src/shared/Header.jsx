@@ -59,7 +59,7 @@ const Header = () => {
                                             <NavLink to="/services/new" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Services</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Schedules</NavLink>
+                                            <NavLink to="/your-schedules" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Schedules</NavLink>
                                         </li>
                                     </ul>
 

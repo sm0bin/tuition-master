@@ -18,9 +18,27 @@ const ServiceDetails = () => {
         const form = document.getElementById('bookingForm');
         if (form.address.value === '' || form.date.value === '') return toast.error('Please fill up the form');
         setOpenModal(false);
-        const bookingInfo = { serviceId: _id, serviceName, serviceImage, serviceProvider, servicePrice, serviceArea, serviceDescription, serviceUserName: user.displayName, serviceUserEmail: user.email, serviceUserPhoto: user.photoURL, serviceUserAddress: form.address.value, serviceUserDate: form.date.value };
+        const bookingInfo = {
+            serviceId: _id,
+            serviceName,
+            serviceImage,
+            serviceProvider,
+            servicePrice,
+            serviceArea,
+            serviceDescription,
+            serviceUser: {
+                image: user.photoURL,
+                name: user.displayName,
+                email: user.email,
+            },
+            serviceDetails: {
+                address: form.address.value,
+                startingDate: form.date.value,
+                status: "pending"
+            }
+        };
         console.log(bookingInfo);
-        axios.post('https://offline-service-server.vercel.app/bookings', bookingInfo)
+        axios.post('http://localhost:5500/bookings', bookingInfo)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {

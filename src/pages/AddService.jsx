@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Label } from 'flowbite-react';
+import { Label } from 'flowbite-react';
 import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
 import axios from 'axios';
@@ -27,7 +27,7 @@ const AddService = () => {
             }
         }
 
-        axios.post('https://offline-service-server.vercel.app/services', serviceData)
+        axios.post('http://localhost:5500/services', serviceData)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {
@@ -81,7 +81,7 @@ const AddService = () => {
                 </div>
 
 
-                <Button type="submit" className='bg-blue-600 hover:bg-blue-700'>Add Service</Button>
+                <button type="submit" className="px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Service</button>
             </form>
         </div>
     );
