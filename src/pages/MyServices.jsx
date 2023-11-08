@@ -1,6 +1,6 @@
 import { Typewriter } from "react-simple-typewriter";
 import { Player } from '@lottiefiles/react-lottie-player';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -13,10 +13,12 @@ const MyServices = () => {
 
 
 
+    useEffect(() => {
 
-    axios.get(`https://offline-service-server.vercel.app/services?email=${user.email}`)
-        .then(res => setMyServices(res.data))
-        .catch(error => console.log(error));
+        axios.get(`https://offline-service-server.vercel.app/services?email=${user.email}`)
+            .then(res => setMyServices(res.data))
+            .catch(error => console.log(error));
+    }, [])
 
     const handleDelete = (id) => {
 
@@ -37,7 +39,13 @@ const MyServices = () => {
                             title: "Deleted!",
                             text: "Your file has been deleted.",
                             icon: "success"
-                        });
+                        }).then(result => {
+                            if (result.isConfirmed) {
+
+                                location.reload();
+                            }
+                        })
+
                     })
                     .catch(error => {
                         console.log(error);
