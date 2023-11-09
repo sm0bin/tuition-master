@@ -44,12 +44,12 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             setLoading(false);
             if (currentUser) {
-                axios.post("http://localhost:5500/jwt", loggedInUser, { withCredentials: true })
+                axios.post("https://offline-service-server.vercel.app/jwt", loggedInUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
             } else {
-                axios.post("http://localhost:5500/logout", loggedInUser, { withCredentials: true })
+                axios.post("https://offline-service-server.vercel.app/logout", loggedInUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
