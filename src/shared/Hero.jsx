@@ -1,10 +1,16 @@
 import { Typewriter } from "react-simple-typewriter";
 import img from "../assets/home-tuitor.svg";
+import { motion } from "framer-motion"
 
 
 const Hero = () => {
     return (
-        <div className="max-w-7xl mx-4 md:mx-8 lg:mx-auto flex flex-col-reverse lg:flex-row justify-between  my-12 lg:my-32  gap-8 lg:gap-32">
+        <motion.div
+            initial={{ opacity: 0.4, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: .7 }}
+            exit={{ opacity: 0.4, scale: 0.7 }}
+            className="max-w-7xl mx-4 md:mx-8 lg:mx-auto flex flex-col-reverse lg:flex-row justify-between  my-12 lg:my-32  gap-8 lg:gap-32">
             <div className="lg:w-1/2">
                 {/* <h1 className="font-bold text-6xl mb-6 leading-tight">Unlock Your Academic Potential with <span className="text-blue-600">Tuition Master</span></h1> */}
                 <h1 className="font-bold text-5xl md:text-6xl mb-6 leading-tight h-56 md:h-44 ">
@@ -28,7 +34,7 @@ const Hero = () => {
             </div>
             <img className="w-full max-w-xl" src={img} alt="" />
 
-        </div>
+        </motion.div>
     );
 };
 

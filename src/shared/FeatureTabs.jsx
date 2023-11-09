@@ -1,8 +1,16 @@
 
+import { motion } from "framer-motion"
+
 const FeatureTabs = () => {
     return (
 
-        <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <motion.div
+            initial={{ opacity: 0.4, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: .7 }}
+            exit={{ opacity: 0.4, scale: 0.7 }}
+
+            className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="sm:hidden">
                 <label htmlFor="tabs" className="sr-only">Select tab</label>
                 <select id="tabs" className="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -124,7 +132,7 @@ const FeatureTabs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
 
     );
 };

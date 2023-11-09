@@ -3,6 +3,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import { motion } from "framer-motion"
 
 const AllServices = () => {
     const loadedServices = useLoaderData();
@@ -30,7 +31,12 @@ const AllServices = () => {
     }
 
     return (
-        <div className="">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            exit={{ opacity: 0 }}
+            className="">
             <Helmet>
                 <title>Tuition Master | All Services</title>
             </Helmet>
@@ -69,7 +75,10 @@ const AllServices = () => {
                 {displayServices.length === 0 ? <h3 className="font-semibold text-2xl text-center py-12 bg-slate-200 rounded-lg">Search Result is Empty</h3> :
                     displayServices?.map(service => (
 
-                        <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <motion.div
+                            whileHover={{ scale: [null, 1.01, 1.01] }}
+                            transition={{ duration: 0.5 }}
+                            key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="md:w-1/2 object-cover w-[600px] h-[400px] rounded-t-lg  md:rounded-none md:rounded-l-lg" src={service.serviceImage} alt={`${service?.serviceName} image`} />
                             <div className="flex flex-col md:w-1/2 justify-between p-4 leading-normal space-y-3">
                                 <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{service?.serviceName}</h5>
@@ -87,7 +96,7 @@ const AllServices = () => {
                                     </svg>
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
 
 
 
@@ -96,7 +105,7 @@ const AllServices = () => {
                 }
             </div>
             <button onClick={handleShowAll} type="button" className={`${showAll && "hidden"} text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-20 mx-auto block dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800`}>Show all</button>
-        </div>
+        </motion.div>
 
     )
 };

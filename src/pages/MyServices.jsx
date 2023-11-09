@@ -10,6 +10,7 @@ import gif from "../assets/sleeping-blue.json";
 import { Helmet } from "react-helmet";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Skeleton from "react-loading-skeleton";
+import { motion } from "framer-motion"
 
 
 const MyServices = () => {
@@ -78,7 +79,12 @@ const MyServices = () => {
 
 
     return (
-        <div className=" mt-20">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            exit={{ opacity: 0 }}
+            className=" mt-20">
             <Helmet>
                 <title>Tuition Master | My Services</title>
             </Helmet>
@@ -164,7 +170,7 @@ const MyServices = () => {
                     <UpdateService updateService={updateService} setOpenModal={setOpenModal}></UpdateService>
                 </Modal.Body>
             </Modal>
-        </div>
+        </motion.div>
 
     )
 };

@@ -6,6 +6,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { Helmet } from "react-helmet";
 import Skeleton from "react-loading-skeleton";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { motion } from "framer-motion"
 
 const MySchedules = () => {
     const { user } = useContext(AuthContext);
@@ -43,7 +44,12 @@ const MySchedules = () => {
 
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <Toaster />
             <Helmet>
                 <title>Tuition Master | My Schedules</title>
@@ -113,7 +119,7 @@ const MySchedules = () => {
                 }
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

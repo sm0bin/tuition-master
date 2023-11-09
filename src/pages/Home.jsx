@@ -4,10 +4,17 @@ import Hero from "../shared/Hero";
 import PopularServices from "../shared/PopularServices";
 import Testimonials from "../shared/Testimonials";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion"
 
 const Home = () => {
     return (
-        <div className="space-y-20 md:space-y-32">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            exit={{ opacity: 0 }}
+
+            className="space-y-20 md:space-y-32">
             <Helmet>
                 <title>Tuition Master | Home</title>
             </Helmet>
@@ -16,7 +23,7 @@ const Home = () => {
             <FeatureTabs></FeatureTabs>
             <Testimonials></Testimonials>
             <CtaCard></CtaCard>
-        </div>
+        </motion.div>
     );
 };
 

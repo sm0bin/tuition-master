@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"
 
 const Login = () => {
     const { googleSignIn, loginUser } = useContext(AuthContext);
@@ -41,7 +42,12 @@ const Login = () => {
     }
 
     return (
-        <div className="mx-auto h-screen mt-20">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            exit={{ opacity: 0 }}
+            className="mx-auto h-screen mt-20">
             <Toaster />
             <div className="max-w-md mx-auto">
 
@@ -94,7 +100,7 @@ const Login = () => {
                     <Link to="/sign-up" className="font-medium text-blue-600 dark:text-blue-500 hover:underline"> Sign Up</Link>
                 </h4>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

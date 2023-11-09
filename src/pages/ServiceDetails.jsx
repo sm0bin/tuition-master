@@ -7,6 +7,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { motion } from "framer-motion"
 
 
 const ServiceDetails = () => {
@@ -63,7 +64,12 @@ const ServiceDetails = () => {
 
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <Toaster />
             <Helmet>
                 <title>Tuition Master | Service Details</title>
@@ -197,7 +203,7 @@ const ServiceDetails = () => {
 
 
 
-        </div>
+        </motion.div>
     );
 };
 

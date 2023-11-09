@@ -1,7 +1,14 @@
 
+import { motion } from "framer-motion"
+
 const Testimonials = () => {
     return (
-        <div className="">
+        <motion.div
+            initial={{ opacity: 0.4, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: .7 }}
+            exit={{ opacity: 0.4, scale: 0.7 }}
+            className="">
             <h2 className="font-bold text-center text-3xl mb-12">Discover What Others Have to Say</h2>
 
             <div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2">
@@ -59,7 +66,7 @@ const Testimonials = () => {
                 </figure>
             </div>
 
-        </div>
+        </motion.div>
 
     );
 };

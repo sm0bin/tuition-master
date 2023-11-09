@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { motion } from "framer-motion"
 
 const PopularServices = () => {
     const [services, setServices] = useState([]);
@@ -12,14 +13,21 @@ const PopularServices = () => {
             .then(res => setServices(res.data));
     }, [services])
     return (
-        <div>
+        <motion.div
+
+        >
 
             <h2 className="font-bold text-center text-3xl mb-12">Popular Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {services.length ?
                     services?.slice(0, 4).map(service => (
 
-                        <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow  w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <motion.div
+                            initial={{ opacity: 0.4, scale: 0.7 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: .7 }}
+                            exit={{ opacity: 0.4, scale: 0.7 }}
+                            key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow  w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                             <img className="object-cover w-full h-[400px] rounded-t-lg  md:rounded-none" src={service.serviceImage} alt={`${service?.serviceName} image`} />
                             <div className="flex flex-col  justify-between p-6 leading-normal space-y-3 grow">
                                 <div className="grow">
@@ -40,7 +48,7 @@ const PopularServices = () => {
                                     </svg>
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
 
 
 
@@ -59,7 +67,7 @@ const PopularServices = () => {
             </Link>
 
 
-        </div>
+        </motion.div>
     );
 };
 
