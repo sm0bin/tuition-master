@@ -28,7 +28,7 @@ const UpdateService = ({ updateService, setOpenModal }) => {
             serviceDescription: form.serviceDescription.value,
         }
 
-        axios.put(`https://offline-service-server.vercel.app/services/${_id}`, serviceData)
+        axios.put(`http://localhost:5500/services/${_id}`, serviceData)
             .then(res => {
                 console.log(res);
                 if (res.data.modifiedCount) {

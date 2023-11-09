@@ -28,7 +28,7 @@ const AddService = () => {
             }
         }
 
-        axios.post('https://offline-service-server.vercel.app/services', serviceData)
+        axios.post('http://localhost:5500/services', serviceData)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {

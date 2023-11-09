@@ -11,9 +11,9 @@ const AllServices = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        const searchText = e.target.search.value.toLowerCase();
+        const searchText = e.target.search.value;
         // const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
-        axios.get(`https://offline-service-server.vercel.app/services?search=${searchText}`)
+        axios.get(`http://localhost:5500/services?search=${searchText}`)
             .then(res => {
                 console.log(res.data);
                 setDisplayServices(res.data.slice(0, 6));
@@ -66,7 +66,7 @@ const AllServices = () => {
             </div>
 
             <div className=" grid grid-cols-1 gap-6">
-                {
+                {displayServices.length === 0 ? <h3 className="font-semibold text-2xl text-center py-12 bg-slate-200 rounded-lg">Search Result is Empty</h3> :
                     displayServices?.map(service => (
 
                         <div key={service._id} className="flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">

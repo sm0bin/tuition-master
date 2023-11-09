@@ -17,7 +17,7 @@ const ServiceDetails = () => {
     const [sameProviderServices, setSameProviderServices] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://offline-service-server.vercel.app/services?email=${serviceProvider?.email}`)
+        axios.get(`http://localhost:5500/services?email=${serviceProvider?.email}`)
             .then(res => {
                 const restOfSameProviderService = res.data.filter(service => service._id !== _id);
                 setSameProviderServices(restOfSameProviderService);
@@ -48,7 +48,7 @@ const ServiceDetails = () => {
             }
         };
         console.log(bookingInfo);
-        axios.post('https://offline-service-server.vercel.app/bookings', bookingInfo)
+        axios.post('http://localhost:5500/bookings', bookingInfo)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {
