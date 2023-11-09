@@ -1,22 +1,23 @@
 'use client';
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from 'react-hot-toast';
 import { Helmet } from "react-helmet";
 import Skeleton from "react-loading-skeleton";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MySchedules = () => {
     const { user } = useContext(AuthContext);
     const [myBookings, setMyBookings] = useState([]);
     const [myPending, setMyPending] = useState([]);
     const [loading, setLoading] = useState(true);
+    const axiosSecure = useAxiosSecure();
 
     const handleStateChange = (e, id) => {
         const serviceState = e.target.value;
         console.log(serviceState);
-        axios.put(`http://localhost:5500/bookings/${id}`, { serviceState })
+        axiosSecure.put(`/bookings/${id}`, { serviceState })
             .then(res => {
                 if (res.data.modifiedCount) {
                     console.log(res.data);
@@ -31,13 +32,13 @@ const MySchedules = () => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:5500/bookings?email=${user.email}`, { withCredentials: true })
+        axiosSecure.get(`/bookings?email=${user.email}`)
             .then(res => {
                 setMyBookings(res.data.userBooking);
                 setMyPending(res.data.userPending);
                 setLoading(false);
             })
-    }, [user.email])
+    }, [user.email, axiosSecure])
 
 
 

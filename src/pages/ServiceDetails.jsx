@@ -5,8 +5,8 @@ import { Datepicker, Label, Modal, TextInput } from 'flowbite-react';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
-import axios from "axios";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 const ServiceDetails = () => {
@@ -15,14 +15,15 @@ const ServiceDetails = () => {
     const { _id, serviceName, serviceImage, serviceProvider, servicePrice, serviceArea, serviceDescription } = service;
     const { user } = useContext(AuthContext);
     const [sameProviderServices, setSameProviderServices] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        axios.get(`http://localhost:5500/services?email=${serviceProvider?.email}`)
+        axiosSecure.get(`/services?email=${serviceProvider?.email}`)
             .then(res => {
                 const restOfSameProviderService = res.data.filter(service => service._id !== _id);
                 setSameProviderServices(restOfSameProviderService);
             })
-    }, [serviceProvider?.email, _id])
+    }, [serviceProvider?.email, _id, axiosSecure])
 
     const handleBooking = () => {
         const form = document.getElementById('bookingForm');
@@ -48,7 +49,7 @@ const ServiceDetails = () => {
             }
         };
         console.log(bookingInfo);
-        axios.post('http://localhost:5500/bookings', bookingInfo)
+        axiosSecure.post('/bookings', bookingInfo)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {

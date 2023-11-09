@@ -1,12 +1,13 @@
 'use client';
 import PropTypes from 'prop-types';
 import { Label } from 'flowbite-react';
-import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import { Helmet } from "react-helmet";
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const UpdateService = ({ updateService, setOpenModal }) => {
+    const axiosSecure = useAxiosSecure();
     const {
         _id,
         serviceImage,
@@ -28,7 +29,7 @@ const UpdateService = ({ updateService, setOpenModal }) => {
             serviceDescription: form.serviceDescription.value,
         }
 
-        axios.put(`http://localhost:5500/services/${_id}`, serviceData)
+        axiosSecure.put(`/services/${_id}`, serviceData)
             .then(res => {
                 console.log(res);
                 if (res.data.modifiedCount) {

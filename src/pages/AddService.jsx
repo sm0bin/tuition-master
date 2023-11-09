@@ -3,12 +3,13 @@
 import { Label } from 'flowbite-react';
 import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
-import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const AddService = () => {
     const { user } = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
     // const form = document.getElementById('addServiceForm');
 
     const handleAddService = (e) => {
@@ -28,7 +29,7 @@ const AddService = () => {
             }
         }
 
-        axios.post('http://localhost:5500/services', serviceData)
+        axiosSecure.post('/services', serviceData)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {
