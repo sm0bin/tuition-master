@@ -14,7 +14,7 @@ const AllServices = () => {
         e.preventDefault();
         const searchText = e.target.search.value;
         // const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
-        axios.get(`https://offline-service-server.vercel.app/services?search=${searchText}`)
+        axios.get(`https://tuition-master.vercel.app/services?search=${searchText}`)
             .then(res => {
                 console.log(res.data);
                 setDisplayServices(res.data.slice(0, 6));
