@@ -71,7 +71,21 @@ Welcome to the Tuition Master website! This readme.md file provides an overview 
 - **User Support and Contact Information:**
   - Users can easily find contact information and support options on the website.
 
-## Website Link
+## Technology
+
+### Frontend
+
+[![My Skills](https://skillicons.dev/icons?i=react,tailwind)](https://skillicons.dev)
+
+### Backend
+
+[![My Skills](https://skillicons.dev/icons?i=nodejs,express,mongodb)](https://skillicons.dev)
+
+### Authentication
+
+[![My Skills](https://skillicons.dev/icons?i=firebase)](https://skillicons.dev)
+
+## Links
 
 - Live Website: [Tuition Master](https://tuition-master-sm.web.app).
 - Server Side Repository: [Tuition Master Server](https://github.com/sm0bin/tuition-master-server).
