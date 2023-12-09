@@ -73,7 +73,7 @@ Welcome to the Tuition Master website! This readme.md file provides an overview 
 
 ## Website Link
 
-Live Website: [Tuition Master](https://tuition-master-sm.web.app).
-Server Side Repository: [Tuition Master Server](https://github.com/sm0bin/tuition-master-server).
+- Live Website: [Tuition Master](https://tuition-master-sm.web.app).
+- Server Side Repository: [Tuition Master Server](https://github.com/sm0bin/tuition-master-server).
 
 Thank you for exploring the Tuition Master website!
