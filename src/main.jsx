@@ -51,11 +51,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AddService></AddService></PrivateRoute>,
       },
       {
-        path: "/your-services",
+        path: "/my-services",
         element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
       },
       {
-        path: "/your-schedules",
+        path: "/dashboard",
         element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>,
       },
     ]
