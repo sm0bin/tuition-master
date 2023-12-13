@@ -49,6 +49,7 @@ const ServiceDetails = () => {
                 status: "pending"
             }
         };
+
         console.log(bookingInfo);
         axiosSecure.post('/bookings', bookingInfo)
             .then(res => {
@@ -71,9 +72,11 @@ const ServiceDetails = () => {
             exit={{ opacity: 0 }}
         >
             <Toaster />
+
             <Helmet>
                 <title>Tuition Master | Service Details</title>
             </Helmet>
+
             <div className="my-12 flex overflow-hidden flex-col items-start bg-white border border-gray-200 rounded-lg shadow  w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="object-cover w-full h-[560px] rounded-t-lg  md:rounded-none" src={serviceImage} alt={`${serviceName} image`} />
                 <div className="w-full flex flex-col  justify-between p-6 leading-normal space-y-3 grow">
@@ -94,8 +97,10 @@ const ServiceDetails = () => {
 
                 </div>
             </div>
+
+
             {
-                sameProviderServices.length &&
+                sameProviderServices.length > 0 &&
                 <div>
                     <h2 className="font-bold text-3xl text-center mb-12 mt-20">Similar Services</h2>
                     <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
@@ -124,15 +129,10 @@ const ServiceDetails = () => {
                                         </Link>
                                     </div>
                                 </div>
-
-
-
-
                             ))
                         }
                     </div>
                 </div>
-
             }
 
 
@@ -140,8 +140,6 @@ const ServiceDetails = () => {
                 <Modal.Header />
                 <Modal.Body>
                     <form id="bookingForm">
-
-
                         <img className="object-cover w-full h-80 rounded-lg mb-6" src={serviceImage} alt={`${serviceName} image`} />
                         <div className="flex flex-col  justify-between leading-normal space-y-3 grow">
                             <div className="grow space-y-3">
@@ -158,7 +156,6 @@ const ServiceDetails = () => {
                                             <div>
                                                 <h4 className="font-bold text-lg">{serviceProvider?.name}</h4>
                                                 <h4 className="font-semibold text-base">{serviceProvider?.email}</h4>
-
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +168,6 @@ const ServiceDetails = () => {
                                             <div>
                                                 <h4 className="font-bold text-lg">{user?.displayName}</h4>
                                                 <h4 className="font-semibold text-base">{user?.email}</h4>
-
                                             </div>
                                         </div>
                                     </div>
@@ -187,21 +183,13 @@ const ServiceDetails = () => {
                                         </div>
                                         <Datepicker name="date" id="date" addon="Date" autoHide={false} required />
                                     </div>
-
                                 </div>
-
-
                             </div>
-
                             <button onClick={handleBooking} type="button" className="mt-3 px-6 py-3.5 text-base font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Purchase Now</button>
                         </div>
                     </form>
-                    {/* </div> */}
-
                 </Modal.Body>
             </Modal>
-
-
 
         </motion.div>
     );

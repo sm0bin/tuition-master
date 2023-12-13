@@ -28,7 +28,7 @@ const Header = () => {
                 <Toaster />
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <NavLink to="/" className="flex items-center">
-                        <img src="book-logo.svg" className="h-8 mr-3" alt="Tuition Master Logo" />
+                        <img src="/book-logo.svg" className="h-8 mr-3" alt="Tuition Master Logo" />
                         <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">Tuition Master</span>
                     </NavLink>
                     <button data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
@@ -56,13 +56,13 @@ const Header = () => {
                                     <div id="dropdownNavbar" className={`z-10 absolute ${isOpen ? '' : 'hidden'} font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}>
                                         <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                             <li>
-                                                <NavLink to="/your-services" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Services</NavLink>
+                                                <NavLink to="/my-services" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Services</NavLink>
                                             </li>
                                             <li>
                                                 <NavLink to="/services/new" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Services</NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to="/your-schedules" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Schedules</NavLink>
+                                                <NavLink to="/my-schedules" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Schedules</NavLink>
                                             </li>
                                         </ul>
 

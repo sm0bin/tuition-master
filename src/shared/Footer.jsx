@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <a to="/" className="flex items-center">
-                            <img src="book-logo.svg" className="h-8 mr-3" alt="Tuition Master Logo" />
+                            <img src="/book-logo.svg" className="h-8 mr-3" alt="Tuition Master Logo" />
                             <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">Tuition Master</span>
                         </a>
                     </div>
