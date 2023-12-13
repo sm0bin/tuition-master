@@ -17,6 +17,8 @@ import PrivateRoute from "./routes/PrivateRoute";
 import AddService from "./pages/AddService";
 import MyServices from "./pages/MyServices";
 import MySchedules from "./pages/MySchedules";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/about",
+        element: <About></About>
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
       },
       {
         path: "/services",
