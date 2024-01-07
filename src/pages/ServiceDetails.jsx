@@ -5,7 +5,7 @@ import { Datepicker, Label, Modal, TextInput } from 'flowbite-react';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { motion } from "framer-motion"
 
@@ -54,7 +54,7 @@ const ServiceDetails = () => {
         axiosSecure.post('/bookings', bookingInfo)
             .then(res => {
                 console.log(res);
-                if (res.data.acknowledged) {
+                if (res.data) {
                     toast.success('Service successfully purchased!')
                 }
             })

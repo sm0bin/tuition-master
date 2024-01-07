@@ -19,6 +19,7 @@ import MyServices from "./pages/MyServices";
 import MySchedules from "./pages/MySchedules";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -49,12 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <AllServices></AllServices>,
-        loader: () => fetch("https://tuition-master.vercel.app/services")
+        loader: () => fetch("http://localhost:5500/services")
       },
       {
         path: "/services/:id",
         element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://tuition-master.vercel.app/services/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5500/services/${params.id}`)
       },
       {
         path: "/services/new",
@@ -75,7 +76,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>
 );

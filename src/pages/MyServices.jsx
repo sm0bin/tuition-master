@@ -7,7 +7,7 @@ import { Modal } from 'flowbite-react';
 import UpdateService from "./UpdateService";
 import Lottie from "lottie-react";
 import gif from "../assets/sleeping-blue.json";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Skeleton from "react-loading-skeleton";
 import { motion } from "framer-motion"

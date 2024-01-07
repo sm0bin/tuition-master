@@ -4,7 +4,7 @@ import { Label } from 'flowbite-react';
 import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { motion } from "framer-motion"
 
@@ -33,7 +33,7 @@ const AddService = () => {
         axiosSecure.post('/services', serviceData)
             .then(res => {
                 console.log(res);
-                if (res.data.acknowledged) {
+                if (res.data) {
                     form.reset();
                     toast.success('Service successfully added!');
                 }

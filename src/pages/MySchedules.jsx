@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from 'react-hot-toast';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Skeleton from "react-loading-skeleton";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { motion } from "framer-motion"

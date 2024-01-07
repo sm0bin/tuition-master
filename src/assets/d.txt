@@ -1,0 +1,20 @@
+1. Unique Project 01
+
+Project Live link: https://tuition-master-sm.web.app/
+GitHub client link: https://github.com/sm0bin/tuition-master
+GitHub server link: https://github.com/sm0bin/tuition-master-server
+Unique Feature: 1. About page, 2. Contact Page, 4. Page animation and effects
+Unique Technology: Flowbite
+Project Selling line: It solves the problem of finding and providing tuition service
+
+
+
+
+2. Unique Project 02
+
+Project Live link: https://tourist-guide-sm.web.app/
+GitHub client link: https://github.com/sm0bin/tourist-guide
+GitHub server link: https://github.com/sm0bin/tourist-guide-server
+Unique Feature: 1. Confetti, 2. Tabs, 3. Slider, 4. Gallery feature in tourist stories, 5. Colorful tour type identifier, 6. Vertical Sliders, 7. Timeline for Days
+Unique Technology: Mongoose
+Project Selling line: It solves the problem of finding trusted tourist guide

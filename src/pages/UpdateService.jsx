@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label } from 'flowbite-react';
 import { Toaster, toast } from 'react-hot-toast';
 import Swal from 'sweetalert2';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const UpdateService = ({ updateService, setOpenModal }) => {
@@ -32,7 +32,7 @@ const UpdateService = ({ updateService, setOpenModal }) => {
         axiosSecure.put(`/services/${_id}`, serviceData)
             .then(res => {
                 console.log(res);
-                if (res.data.modifiedCount) {
+                if (res.data) {
                     form.reset();
                     setOpenModal(false);
                     Swal.fire({

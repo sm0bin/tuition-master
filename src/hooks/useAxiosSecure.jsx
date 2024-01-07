@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const axiosSecure = axios.create({
-    baseURL: "https://tuition-master.vercel.app",
+    baseURL: "http://localhost:5500",
     withCredentials: true
 })
 

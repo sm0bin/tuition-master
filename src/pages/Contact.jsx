@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
     return (
         <section className="my-12">
+            <Helmet>
+                <title>Tuition Master | Contact</title>
+            </Helmet>
             <h2 className="font-bold text-5xl text-blue-500 mb-8 leading-tight">Contact Us</h2>
             <h2 className="font-bold text-3xl text-blue-500 mb-3 mt-12">Get in Touch</h2>
             <p className="text-gray-500 dark:text-gray-400 text-xl mb-4 leading-relaxed">

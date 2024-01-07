@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const About = () => {
     return (
         <section className="my-12">
+            <Helmet>
+                <title>Tuition Master | About</title>
+            </Helmet>
 
             <h2 className="font-bold text-5xl text-blue-500 mb-8 leading-tight">Welcome to Tuition Master,<br /> Where learning knows no bounds!</h2>
 

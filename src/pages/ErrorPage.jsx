@@ -1,6 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import img from "../assets/404-panda.svg"
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion"
 
 export default function ErrorPage() {

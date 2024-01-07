@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { Player } from '@lottiefiles/react-lottie-player';
 import { useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import { motion } from "framer-motion"
 
@@ -14,7 +14,7 @@ const AllServices = () => {
         e.preventDefault();
         const searchText = e.target.search.value;
         // const filteredServices = loadedServices.filter(service => service.serviceName.toLowerCase().includes(searchText));
-        axios.get(`https://tuition-master.vercel.app/services?search=${searchText}`)
+        axios(`http://localhost:5500/services?search=${searchText}`)
             .then(res => {
                 console.log(res.data);
                 setDisplayServices(res.data.slice(0, 6));
@@ -38,7 +38,7 @@ const AllServices = () => {
             exit={{ opacity: 0 }}
             className="">
             <Helmet>
-                <title>Tuition Master | All Services</title>
+                <title>Tuition Master | Services</title>
             </Helmet>
 
             <div className="md:flex gap-10 mt-10 items-center">
